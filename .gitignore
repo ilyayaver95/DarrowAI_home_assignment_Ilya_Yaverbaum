@@ -1,0 +1,18 @@
+# secrets
+.env
+.env.*
+
+# local state
+.cache/
+.venv/
+.idea/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+
+# intermediate outputs (predictions.jsonl for eval IS committed)
+dev_predictions.jsonl
+
+# KPI histories written by run.py and evaluate.py --tag
+experiments/

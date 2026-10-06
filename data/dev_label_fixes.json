@@ -1,0 +1,36 @@
+{
+  "cb41ff": {
+    "note": "Label typo 'bytendance' (text: BYTEDANCE). TikTok Pte. Ltd. is in the caption and is 'Defendant TikTok Pte. Ltd.' in the Parties section, but has no label.",
+    "remove": ["bytendance, incorporated", "bytendance, limited"],
+    "add": ["bytedance, incorporated", "bytedance, limited", "tiktok pte., limited"]
+  },
+  "c1ddb6": {
+    "note": "Label drops 'FC' from 'CHEMOURS COMPANY FC, LLC'. 'Defendant UTC Fire & Security Americas Corporation, Inc.' is party no. 25 in the body (para. 61); the caption in primary_text is cut off at the page end.",
+    "remove": ["chemours company, limited liability company"],
+    "add": ["chemours company fc, limited liability company", "utc fire & security americas corporation, incorporated"]
+  },
+  "c39ab0": {
+    "note": "Caption says 'ET AL.'; paras. 33-35 name Progressive Advanced, Max and Specialty each as 'Defendant'. Full names are taken from para. 21.",
+    "remove": [],
+    "add": ["progressive advanced insurance company", "progressive max insurance company", "progressive specialty insurance company"]
+  },
+  "c79143": {
+    "note": "All six labels reproduce the multi-column OCR interleaving of the caption. Replaced by the names a reader reconstructs from the same caption.",
+    "remove": [
+      "concrete transport liability services, a business hector entity",
+      "engineering & manufacturing north motor isa america, corporation, incorporated",
+      "longo, limited liability company",
+      "motor toyota corporation, japanese a",
+      "toyota a sales, longo, u.s.a., a corporation, incorporated",
+      "toyota motor north corporation"
+    ],
+    "add": [
+      "toyota motor corporation",
+      "toyota motor north america, incorporated",
+      "toyota motor engineering & manufacturing north america, incorporated",
+      "toyota motor sales, u.s.a., incorporated",
+      "d. longo, limited liability company",
+      "concrete transport services"
+    ]
+  }
+}
