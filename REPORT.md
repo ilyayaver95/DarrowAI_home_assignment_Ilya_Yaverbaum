@@ -8,7 +8,7 @@ Final pipeline: `gpt-4.1`, prompt v3, deterministic pre- and post-processing.
 | dev, documented label corrections | 0.990 | 0.980 | 0.985 |
 | my audited subset of eval (28 docs) | 1.000 | 1.000 | 1.000 |
 
-The first row is the comparable number. A hand-typed perfect reading of the captions scores 0.899 against the same labels: the ceiling.
+The first row is the comparable number; a hand-typed perfect reading of the captions scores 0.899, the ceiling.
 
 ## 1. What I measured, and why
 
@@ -45,11 +45,14 @@ I read all 15 dev documents before writing a prompt. The labels record organizat
 
 Twenty of 22 errors are label problems; one name is a model error.
 
-## 4. Calls that could cost points
+## 4. Scope decisions
 
-- Individuals and Does go to `excluded_parties` (`--policy raw` restores them).
-- Defendants named only in the body are included, tagged `source: body`.
-- A blank check-list returns `[]`; a fictitious entity with a trade name is kept and flagged.
+Decided from the dev labels where the brief is silent:
+
+- **Individuals and Does** are left out of `defendants`, as in every dev label, and kept in `excluded_parties` (`--policy raw` restores them).
+- **Defendants named only in the body** are included, tagged `source: body`: the complaint names them as defendants, though the dev labels do not.
+- **A blank check-list** returns `[]`: an unmarked list does not show who is sued.
+- **A fictitious entity with a real trade name** is kept, flagged as a placeholder.
 
 ## 5. What does not work
 
@@ -60,8 +63,8 @@ Found by attacking the finished pipeline. None of it is fixed.
 - `cd8b20`: "IV INC.", "PED INC.", "PROTECT, INC." are wrong (interleaved caption); the defendants are JLJ IV Enterprises, Inc. and PED Protect, Inc.
 - `c83db3`: "Glenmark Pharmaceuticals, Inc. USA" is not split into name and designator.
 - `ca7a70`: two different companies named "Yin Wall City, Inc." are emitted once.
-- `ce8874`: pro se filing; three names I am not sure of.
-- `ca03b4`, `cc4eaf`, `c5a737` depend on my calls in section 4.
+- `ce8874`: pro se filing; the three names are uncertain.
+- `ca03b4`, `cc4eaf`, `c5a737` follow the scope decisions in section 4.
 - `us_state_of_registration`, `name_quality`, `is_organization`: no labels, spot-checked only.
 
 **Breaks on input outside dev and eval**
